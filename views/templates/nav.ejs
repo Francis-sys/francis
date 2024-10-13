@@ -1,0 +1,78 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;height: 500px;background-color: #f8f9fa!important; border-right: 2px solid rgba(0,0,0,0.1);">    
+    <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <span class="fs-6" id="fullname"><strong><em><%= data.fullname %></em></strong></span>
+        <i><div id="typing" style="color: green;">&nbsp;</div></i>
+    </a>
+    <ul class="nav nav-pills flex-column mb-auto navHover">
+        <li class="nav-item">
+            <a href="/home" class="nav-link" aria-current="page" style="color: black;">
+                Home
+            </a>
+        </li>
+        <ul class="list-unstyled ps-0">
+            <li class="mb-1">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+                    Chat
+                </button>
+                <div class="collapse" id="home-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small navHover">
+                    <li><a href="/chatroom" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Publicly</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Privately</a></li>
+                </ul>
+                </div>
+            </li>
+        </ul>
+        <li>
+            <a href="#" class="nav-link link-body-emphasis">
+                ESN Directory
+            </a>
+        </li>
+       <!-- <li>
+            <a href="#" class="nav-link link-body-emphasis">
+                Share Status
+            </a>
+        </li>-->
+        <ul class="list-unstyled ps-0">
+            <li class="mb-1">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#sharestatus-collapse" aria-expanded="false">
+                    Share Status
+                </button>
+                <div class="collapse" id="sharestatus-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small navHover">
+                        <li><a href="/sharestatus" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Select Status</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul class="list-unstyled ps-0">
+            <li class="mb-1">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#searchinfo-collapse" aria-expanded="false">
+                    Search Information
+                </button>
+                <div class="collapse" id="searchinfo-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small navHover">
+                        <li><a href="/searchinfo" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Search Here</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <!--<li>
+            <a href="#" class="nav-link link-body-emphasis">
+                Search Information
+            </a>
+        </li>-->
+        <ul class="list-unstyled ps-0">
+            <li class="mb-1">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+                    Account
+                </button>
+                <div class="collapse" id="account-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small navHover">
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Profile</a></li>
+                    <li><a href="/logout" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Logout</a></li>
+                </ul>
+                </div>
+            </li>
+        </ul>
+    </ul>
+</div>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('templates/head'); %>
+        <title>Dashboard</title>
+    </head>
+    <body>
+        <%- include('templates/header'); %>
+        <main class="d-flex flex-nowrap" style="height:500px;">
+            <%- include('templates/nav'); %>
+            <div class="d-flex flex-column flex-shrink-0 p-3" style="width: 1060px;">
+                <div id="content" style="width: 80%; margin:auto;">
+                    <p class="text-center fs-4 lh-lg font-monospace text-wrap align-middle">
+                        ESN is a community platform that can be used by people in different times of emergencies. 
+                        When an emergency occurs, a member of the community/citizen can post on the platform and anyone near them can render help such as <em>first aid,</em> or <em>calling for more help nearby.</em>
+                        The community has ordinary users also known as <strong><em>Citizens,</em></strong> <strong><em>Coordinators</em></strong> who are leaders at different levels that can follow up on these emergency cases, and <strong><em>administrators</em></strong> who are incharge of assigning different privileges to the system's users as well as perform other system administration tasks.
+                    </p>
+                </div>
+            </div>
+        </main>
+        <%- include('templates/footer'); %>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "name": "esn2024",
+  "version": "1.0.0",
+  "description": "This is the final project that the whole class is going to contribute to.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KasaaziGW/esn2024.git"
+  },
+  "author": "MIS2024",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KasaaziGW/esn2024/issues"
+  },
+  "homepage": "https://github.com/KasaaziGW/esn2024#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.3",
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.1.10",
+    "express": "^4.20.0",
+    "express-session": "^1.18.0",
+    "mongodb": "^6.9.0",
+    "mongoose": "^8.6.2",
+    "slugify": "^1.6.6",
+    "socket.io": "^4.8.0"
+  }
+}

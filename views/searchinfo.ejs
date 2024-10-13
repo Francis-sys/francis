@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('templates/head'); %>
+    <title>searchinfo</title>
+</head>
+<body>
+    <%- include('templates/header'); %>
+    <main class="d-flex flex-nowrap" style="height:500px;">
+        <%- include('templates/nav'); %>
+        <div class="search-container">
+            <h2>Search Information</h2>
+            <form id="search-form" action="/search" method="post">
+                <label for="search-criteria"><%= data.fullname %>&nbsp;&nbsp;Enter Your Search Criteria Here:</label>
+                
+                <!-- Flex container for the input and button -->
+                <div class="input-button-container">
+                    <input type="text" id="search-criteria" name="searchCriteria" placeholder="Enter name, ID, or Email" required>
+                    <button type="submit" class="search-button">Search</button>
+                </div>
+            </form>        
+           <!-- Suggestion Box for auto complete -->
+            <div id="suggestion-box"></div>
+            <!-- Area for displaying search results -->
+            <div id="search-results" class="results-container">
+                <h3>Results:</h3>
+                <!-- <ul id="results-list" class="card">
+                    <li id="status" class="card-item"></li>
+                    <li id="username" class="card-item" hidden></li>
+                    <li id="timestamp" class="card-item" hidden></li>
+                    
+                </ul> -->
+
+                <div id="results-list" class="card">
+                    <div id="status" class="card-item"></div>
+                    <div id="username" class="card-item" hidden></div>
+                    <div id="timestamp" class="card-item" hidden></div>
+                    <div id="messages" hidden></div>
+                    
+                </div>
+            </div>
+        </div>               
+    </main>
+    <%- include('templates/footer'); %>
+    <script src="js/chat.js"></script>
+    <script>
+        document.getElementById('search-form').addEventListener('submit', async function(event) {
+            event.preventDefault();  // Prevent the form from submitting the traditional way
+
+            const searchCriteria = document.getElementById('search-criteria').value;
+
+            // Make sure searchCriteria isn't empty
+            if (!searchCriteria) {
+                alert('Please enter search criteria');
+                return;
+            }
+
+            try {
+                // Make the POST request
+                const response = await fetch('/search', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ searchCriteria }),
+                });
+
+                const data = await response.json();
+
+                // Get the list elements
+                const statusElement = document.getElementById('status');
+                const usernameElement = document.getElementById('username');
+                const timestampElement = document.getElementById('timestamp');
+                const resultsList = document.getElementById('results-list');
+                const messagesElement = document.getElementById('messages');
+
+                // Clear the previous results
+                resultsList.innerHTML = '';
+
+                if (data.success && data.results.length > 0) {
+                    // Populate the results
+                    data.results.forEach(result => {
+                        const usernameItem = document.createElement('div');
+                        usernameItem.textContent = `Username: ${result.username}`;
+
+                        const statusItem = document.createElement('div');
+                        statusItem.textContent = `Status: ${result.status || 'N/A'}`;
+
+                        const timestampItem = document.createElement('div');
+                        timestampItem.textContent = `Timestamp: ${result.statusLastUpdated || 'N/A'}`;
+
+                        const messagesItem = document.createElement('div');
+                        messagesItem.textContent = `Messages: ${result.statusLastUpdated || 'N/A'}`;
+
+                        resultsList.appendChild(usernameItem);
+                        resultsList.appendChild(statusItem);
+                        resultsList.appendChild(timestampItem);
+
+                        if (result.messages && result.messages.length > 0) {
+                            result.messages.forEach(message => {
+                                const messageItem = document.createElement('div');
+                                messageItem.textContent = `Message: ${message.message}`;
+                                resultsList.appendChild(messageItem);
+                            });
+                        }
+                    });
+                } else {
+                    // If no results, show a message
+                    const noResultsItem = document.createElement('div');
+                    noResultsItem.textContent = 'No results found';
+                    resultsList.appendChild(noResultsItem);
+                }
+
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    </script>
+</body>
+</html>
